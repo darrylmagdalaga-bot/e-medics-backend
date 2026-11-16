@@ -1,0 +1,347 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+  --font-size: 16px;
+  --background: #ffffff; /* White */
+  --foreground: #0f172a;
+  --card: #f9fafb; /* Gray 50 */
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #2563eb; /* Blue Accent */
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6; /* Gray 100 */
+  --secondary-foreground: #0f172a;
+  --muted: #f3f4f6;
+  --muted-foreground: #64748b;
+  --accent: #f8fafc;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #ffffff;
+  --input-background: #f8fafc;
+  --radius: 1rem; /* 16px */
+  --ring: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #10b981;
+  --chart-3: #6366f1;
+  --chart-4: #f59e0b;
+  --chart-5: #ec4899;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #030712; /* Gray 950 */
+  --foreground: #f8fafc;
+  --card: #111827; /* Gray 900 */
+  --card-foreground: #f8fafc;
+  --popover: #111827;
+  --popover-foreground: #f8fafc;
+  --primary: #2563eb; /* Blue Accent */
+  --primary-foreground: #ffffff;
+  --secondary: #10b981; /* Emerald Accent */
+  --secondary-foreground: #ffffff;
+  --muted: #1f2937;
+  --muted-foreground: #94a3b8;
+  --accent: #1f2937;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1f2937;
+  --input: #111827;
+}
+
+/* BHW Portal Scoped Adaptive Light & Dark Purple Design System */
+.portal-bhw {
+  --background: #faf8ff;
+  --foreground: #1e1145;
+  --card: #ffffff;
+  --card-foreground: #1e1145;
+  --popover: #ffffff;
+  --popover-foreground: #1e1145;
+  --primary: #6d28d9;
+  --primary-foreground: #ffffff;
+  --secondary: #f3eeff;
+  --secondary-foreground: #1e1145;
+  --muted: #f3eeff;
+  --muted-foreground: #64748b;
+  --accent: #e9d5ff;
+  --accent-foreground: #4c1d95;
+  --border: #e9e1f5;
+  --input: #ffffff;
+  --input-background: #faf8ff;
+  --ring: #6d28d9;
+  --chart-1: #6d28d9;
+  --chart-2: #16a34a;
+  --chart-3: #2563eb;
+  --chart-4: #f59e0b;
+  --chart-5: #dc2626;
+  --bhw-surface-content: #faf8ff;
+  --bhw-surface-soft: #f3eeff;
+  --bhw-nav-active: #e9d5ff;
+}
+
+.dark .portal-bhw,
+.portal-bhw.dark {
+  --background: #0f0b1a;
+  --foreground: #f5f3ff;
+  --card: #211a32;
+  --card-foreground: #f5f3ff;
+  --popover: #211a32;
+  --popover-foreground: #f5f3ff;
+  --primary: #a78bfa;
+  --primary-foreground: #1e1145;
+  --secondary: #2a2040;
+  --secondary-foreground: #f5f3ff;
+  --muted: #2a2040;
+  --muted-foreground: #b6adc9;
+  --accent: #34204f;
+  --accent-foreground: #f5f3ff;
+  --border: #382c50;
+  --input: #171225;
+  --input-background: #171225;
+  --ring: #a78bfa;
+  --chart-1: #a78bfa;
+  --bhw-surface-content: #171225;
+  --bhw-surface-soft: #2a2040;
+  --bhw-nav-active: #34204f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+
+  /* ========================================================
+     Desktop Cursor Standardization (Tailwind CSS v4 Base)
+     ======================================================== */
+  button:not(:disabled):not([aria-disabled="true"]),
+  input[type="button"]:not(:disabled):not([aria-disabled="true"]),
+  input[type="submit"]:not(:disabled):not([aria-disabled="true"]),
+  input[type="reset"]:not(:disabled):not([aria-disabled="true"]),
+  input[type="checkbox"]:not(:disabled):not([aria-disabled="true"]),
+  input[type="radio"]:not(:disabled):not([aria-disabled="true"]),
+  input[type="file"]:not(:disabled):not([aria-disabled="true"]),
+  select:not(:disabled):not([aria-disabled="true"]),
+  summary,
+  a[href]:not([aria-disabled="true"]),
+  [role="button"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="tab"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="menuitem"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="menuitemcheckbox"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="menuitemradio"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="option"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="switch"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="checkbox"]:not([aria-disabled="true"]):not([data-disabled]),
+  [role="radio"]:not([aria-disabled="true"]):not([data-disabled]),
+  label:has(> input[type="checkbox"]:not(:disabled)),
+  label:has(> input[type="radio"]:not(:disabled)),
+  input[type="checkbox"]:not(:disabled) + label,
+  input[type="radio"]:not(:disabled) + label {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  button[aria-disabled="true"],
+  input:disabled,
+  input[aria-disabled="true"],
+  select:disabled,
+  select[aria-disabled="true"],
+  textarea:disabled,
+  textarea[aria-disabled="true"],
+  [role="button"][aria-disabled="true"],
+  [role="button"][data-disabled],
+  [role="tab"][aria-disabled="true"],
+  [role="tab"][data-disabled],
+  [role="menuitem"][aria-disabled="true"],
+  [role="menuitem"][data-disabled],
+  [role="option"][aria-disabled="true"],
+  [role="option"][data-disabled],
+  a[aria-disabled="true"],
+  label:has(> input:disabled),
+  input:disabled + label {
+    cursor: not-allowed;
+  }
+
+  input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not(:disabled),
+  textarea:not(:disabled),
+  [contenteditable="true"] {
+    cursor: text;
+  }
+
+  [draggable="true"] {
+    cursor: grab;
+  }
+
+  [draggable="true"]:active {
+    cursor: grabbing;
+  }
+}
+
+/* ========================================================
+   Custom Scrollbar System & Utilities
+   ======================================================== */
+*::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-button,
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+*::-webkit-scrollbar-corner,
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.28);
+  border-radius: 9999px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+*::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(37, 99, 235, 0.65);
+}
+
+.dark *::-webkit-scrollbar-track,
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.dark *::-webkit-scrollbar-thumb,
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.22);
+  border-radius: 9999px;
+}
+
+.dark *::-webkit-scrollbar-thumb:hover,
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(59, 130, 246, 0.75);
+}
+
+.custom-scrollbar {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Modern cross-browser scrollbars */
+*,
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+.dark *,
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(148, 163, 184, 0.22) transparent;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

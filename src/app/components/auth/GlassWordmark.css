@@ -1,0 +1,151 @@
+/* GlassWordmark.css - Independent Layer Glass Typography */
+
+.glass-wordmark-root {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  user-select: none;
+  cursor: default;
+}
+
+.glass-wordmark-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+/* ========================================================================= */
+/* LAYER 1: BASE TYPOGRAPHY (Permanently visible, 100% solid, fully opaque)  */
+/* ========================================================================= */
+.glass-wordmark-base {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Lowercase 'e' - Muted Ice Blue */
+.glass-wordmark-e {
+  color: #82BDF2;
+  font-size: 1.34em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  text-shadow: none;
+}
+
+/* Uppercase 'MEDICS' - Solid Soft White */
+.glass-wordmark-medics {
+  color: #F5F8FC;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  text-shadow: none;
+}
+
+/* ========================================================================= */
+/* LAYER 2: SEPARATE INDEPENDENT GLASS REFLECTION OVERLAY                     */
+/* ========================================================================= */
+.glass-wordmark-reflection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: baseline;
+  pointer-events: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  
+  /* Translucent ice-blue/white gradient that enhances without hiding the white base text */
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 36%,
+    rgba(140, 189, 235, 0.45) 42%,
+    rgba(165, 215, 255, 0.8) 46%,
+    rgba(255, 255, 255, 0.6) 49.5%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.6) 50.5%,
+    rgba(165, 215, 255, 0.8) 54%,
+    rgba(140, 189, 235, 0.45) 58%,
+    transparent 64%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  filter: none;
+}
+
+/* Ghost spans used strictly to define the clipping shape of the letters */
+.glass-wordmark-ghost-e {
+  font-size: 1.34em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.glass-wordmark-ghost-medics {
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/*
+  Animation Timing:
+  - 8.0s Total Cycle
+  - 5.5s (0% to 68.75%): Slow, continuous left-to-right travel across the letters
+  - 2.5s (68.75% to 100%): Pause at rest between sweeps
+  - Smooth ease-in-out easing
+*/
+.glass-wordmark-reflection-overlay.animating {
+  animation: slowCinematicGlassSweep 8.5s ease-in-out infinite;
+}
+
+@keyframes slowCinematicGlassSweep {
+  0% {
+    background-position: 125% 0;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  68.75% {
+    background-position: -25% 0;
+    opacity: 0;
+  }
+  72%, 100% {
+    background-position: 125% 0;
+    opacity: 0;
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass-wordmark-reflection-overlay {
+    animation: none !important;
+    display: none !important;
+  }
+}

@@ -1,0 +1,27 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+      <title>eMEDICS | Catbalogan City Health Office</title>
+      <link rel="icon" type="image/png" href="/pharmaease_new_logo.png" />
+      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+          <script>
+        (function() {
+          try {
+            var saved = localStorage.getItem('emedics-theme') || localStorage.getItem('bhw_theme') || 'system';
+            var isDark = saved === 'dark' || (saved === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.remove('light', 'dark');
+            document.documentElement.classList.add(isDark ? 'dark' : 'light');
+          } catch (e) {}
+        })();
+      </script>
+    </head>
+
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </body>
+  </html>
+  

@@ -1,0 +1,21 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .voucher-printable,
+  .voucher-printable * {
+    visibility: visible;
+  }
+  .voucher-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+  }
+}
